@@ -1,0 +1,31 @@
+
+#root {
+  padding: 1rem;
+}
+
+.slick-prev {
+  left: -20px !important;
+  z-index: 1;
+  width: 40px !important;
+  height: 40px !important;
+
+  background-color: #2196f3 !important;
+}
+.slick-next {
+  right: 15px !important;
+  z-index: 100;
+  width: 40px !important;
+  height: 40px !important;
+
+  background-color: #2196f3 !important;
+
+}
+.slick-slider{
+  width: 90% !important;
+  margin: auto !important;
+  
+}
+.map-container {
+  height: 400px;
+  }
+  
