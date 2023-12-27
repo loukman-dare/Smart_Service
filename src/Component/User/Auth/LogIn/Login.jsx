@@ -1,8 +1,10 @@
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Stack, TextField, Typography,Button, InputLabel, Input, InputAdornment, IconButton,FormControl } from '@mui/material'
 import React, { useState } from 'react'
-
+import {login} from '../../../../Slices/LoginSlice';
+import { useDispatch } from 'react-redux';
 const Login = () => {
+  const dispatch = useDispatch()
     const [showPassword,setShowPassword] = useState(false)
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const handleMouseDownPassword = (event) => {
@@ -25,7 +27,7 @@ const Login = () => {
                             endAdornment: <InputAdornment position="start"><IconButton onClick={()=>setShowPassword(show=>!show)} sx={{'&:focus':{outline:"none"}}}>{showPassword?<VisibilityOff /> : <Visibility />}</IconButton></InputAdornment>,
                           }}
                         />
-                <Button sx={{width:'50%',m:"auto"}} variant="contained" >Login</Button>
+                <Button sx={{width:'50%',m:"auto"}} variant="contained" onClick={()=>dispatch(login())}>Login</Button>
                 
             </Stack>
         </form>

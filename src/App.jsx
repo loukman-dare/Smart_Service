@@ -6,17 +6,20 @@ import { Routes, Route } from 'react-router-dom'
 import SignUpUser from './Component/User/Auth/SignUpUser.jsx/SignUpUser'
 import Footer from './Component/Layout/Footer'
 import Login from './Component/User/Auth/LogIn/Login'
+import SignupStore from './Component/User/Auth/SignupStore'
+import SignupServiceProvider from './Component/User/Auth/SignupServiceProvider'
 
 function App() {
-  const [count, setCount] = useState(0)
   
   return (
     <>
       <NavBAr />
       <Routes>
-        <Route path='/' element={<HomeUser />} />
-        <Route path='/signup' element={<SignUpUser />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/Smart_Service' element={<HomeUser />} />
+        <Route path='/Smart_Service/signup' element={<SignUpUser />} />
+        <Route path='/Smart_Service/signupStore' element={<SignupStore />} />
+        <Route path='/Smart_Service/signup-service-provider' element={<SignupServiceProvider />} />
+        <Route path='/Smart_Service/login' element={<Login />} />
       </Routes>
       <Footer />
     </>

@@ -1,12 +1,11 @@
-import { Box, Stack, TextField,Typography,Checkbox, Button, Avatar, Link } from '@mui/material'
-import React, { useRef, useState } from 'react'
-import logo from '../../../../assets/nav/logo.svg'
-import { Person, Send,Upload } from '@mui/icons-material'
-import MapHome from '../../HomeUSer.jsx/HomeUserSections.jsx/MapHome'
-const SignUpUser = () => {
-  const [personHovered,setPersonHovered] = useState(false)
-  const [selectedImage, setSelectedImage] = useState(null);
-  const fileInputRef = useRef();
+import { CheckBox, Person, Send, Upload } from '@mui/icons-material';
+import { Avatar, Button, Link, Stack, TextField, Typography } from '@mui/material'
+import  { useRef, useState } from 'react'
+
+const SignupStore = () => {
+    const [personHovered,setPersonHovered] = useState(false)
+    const [selectedImage, setSelectedImage] = useState(null);
+    const fileInputRef = useRef();
   const handleAvatarClick = () => {
     fileInputRef.current.click();
   };
@@ -25,8 +24,8 @@ const SignUpUser = () => {
   };
   return (
     <Stack sx={{width:'50%',my:"200px",mx:'auto'}}>
-        <Stack >
-          <Typography variant='h5' color='primary' textAlign='center' mb='50px'>Register as a User</Typography>
+        <Stack>
+          <Typography variant='h5' color='primary' textAlign='center' mb='50px'>Register as a Store</Typography>
         </Stack>
         <form>
           <Stack rowGap={3} >
@@ -35,7 +34,7 @@ const SignUpUser = () => {
               ref={fileInputRef}
               style={{ display: 'none' }}
               onChange={handleImageChange} />
-              <Avatar sx={{ width: 100, height: 100 ,cursor:'pointer'}} onClick={handleAvatarClick} src={(selectedImage  && !personHovered)?selectedImage:""}  onMouseEnter={() => setPersonHovered(true)}
+              <Avatar variant="rounded" sx={{ width: 150, height: 150 ,cursor:'pointer'}} onClick={handleAvatarClick} src={(selectedImage  && !personHovered)?selectedImage:""}  onMouseEnter={() => setPersonHovered(true)}
                 onMouseLeave={() => setPersonHovered(false)} >
                 {/* {personHovered ? (
                   <Upload sx={{ width: 96, height: 96 }}/>
@@ -48,11 +47,11 @@ const SignUpUser = () => {
                 <Person sx={{ width: 96, height: 96 }} />
               )}
               </Avatar>
-              <Typography variant='body1'  >please choose your profile picture</Typography>
+              <Typography variant='body1'  >please choose your store picture</Typography>
             </Stack>
             <Stack direction='row' display='flex' justifyContent='space-between'>
-              <TextField label='First Name' required size='small'  sx={{width:'45%','&:hover':{outline:"none",border:'none'}}}/>
-              <TextField label='Last Name' required size='small'  sx={{width:'45%','&:hover':{outline:"none",border:'none'}}}/>
+              <TextField label='Store Name' required size='small'  sx={{width:'45%','&:hover':{outline:"none",border:'none'}}}/>
+              <TextField label='Owner Store Name' required size='small'  sx={{width:'45%','&:hover':{outline:"none",border:'none'}}}/>
             </Stack>
             <Stack direction='row' display='flex' justifyContent='space-between'>
               <TextField label='your password' required size='small'  sx={{width:'45%','&:hover':{outline:"none",border:'none'}}}/>
@@ -61,9 +60,12 @@ const SignUpUser = () => {
             <Stack >
               <TextField label='your Email Address' required size='small'  sx={{width:'100%','&:hover':{outline:"none",border:'none'}}}/>
             </Stack>
+            <Stack >
+              <TextField label='please input adescription for this store' rows={4} multiline required size='small'  sx={{width:'100%','&:hover':{outline:"none",border:'none'}}}/>
+            </Stack>
             <Stack direction='row' justifyContent='space-between' alignItems="center">
                <Stack direction='row' alignItems='center'>
-                <Checkbox/>
+                <CheckBox/>
                 <Typography variant='body2'>I accept the conditions and terminate</Typography>              
               </Stack>
                <Stack direction='row' alignItems='center'>
@@ -74,15 +76,12 @@ const SignUpUser = () => {
                 <Link sx={{cursor:'pointer'}}>Register as a Store</Link>
                 <Link sx={{cursor:'pointer'}}>Register as a Service Provider</Link>
             </Stack>
-           
             <Button sx={{width:'50%',m:"auto"}} variant="contained" endIcon={<Send />} >start</Button>
             
           </Stack>
-          
-
         </form>
     </Stack>
   )
 }
 
-export default SignUpUser
+export default SignupStore
